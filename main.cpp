@@ -28,6 +28,30 @@ void Register() {
     cout << "Regstration completed.\n";
 }
 
+// Visa 
+void Visa() {
+    char needVisa;
+    cout << "\nDo you need a visa? (y/n): ";
+    cin >> needVisa;
+
+    if (needVisa == 'n' || needVisa == 'N') {
+        cout << "No visa needed.\n";
+        return;
+    }
+
+    bool applied = false;
+    while (!applied) {
+        cout << "Informing student for visa application...\n";
+        char check;
+        cout << "Have you applied for visa? (y/n): ";
+        cin >> check;
+        if (check == 'y' || check == 'Y') {
+            applied = true;
+            cout << "Visa application confirmed.\n";
+        }
+    }
+}
+
 //  Main 
 int main() {
     cout << "=== Student Registration System ===\n";
