@@ -18,7 +18,7 @@ void Register() {
 
         if (verify == 'y' || verify == 'Y') {
             verified = true;
-            cout << "Form verified. Sending to department...\n";
+            cout << "Form verified. Sending to department\n";
             cout << "Student information stored in database.\n";
         } else {
             cout << "Form not verified. Please complete again.\n";
@@ -41,7 +41,7 @@ void Visa() {
 
     bool applied = false;
     while (!applied) {
-        cout << "Informing student for visa application...\n";
+        cout << "Informing student for visa application\n";
         char check;
         cout << "Have you applied for visa? (y/n): ";
         cin >> check;
@@ -64,7 +64,7 @@ void TuitionFee() {
             paid = true;
             cout << "Tuition fee paid successfully.\n";
         } else {
-            cout << "Waiting until fee is paid...\n";
+            cout << "Waiting until fee is paid\n";
         }
     }
 }
@@ -84,7 +84,7 @@ void Accommodation() {
 
 //  Assign Tutor
 void AssignTutor() {
-    cout << "\n--- Assigning Personal Tutor ---\n";
+    cout << "\n Assigning Personal Tutor \n";
     cout << "Personal Tutor Assigned.\n";
     cout << "Meeting with Personal Tutor completed.\n";
 
@@ -101,13 +101,13 @@ void AssignTutor() {
 
 //  Termination 
 void Termination() {
-    cout << "\n--- Termination ---\n";
+    cout << "\n Termination\n";
     cout << "Student Fully Registered!\n";
 }
 
 //  Main 
 int main() {
-    cout << "=== Student Registration System ===\n";
+    cout << " Student Registration System \n";
 
     Register();   
     Visa();               
@@ -116,6 +116,6 @@ int main() {
     AssignTutor();        
     Termination();        
 
-    cout << "\n=== Registration Process Completed ===\n";
+    cout << "\n Registration Process Completed \n";
     return 0;
 }
