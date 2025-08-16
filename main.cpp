@@ -52,6 +52,23 @@ void Visa() {
     }
 }
 
+//  Tuition Fee 
+void TuitionFee() {
+    bool paid = false;
+    cout << "\n--- Tuition Fee Payment ---\n";
+    while (!paid) {
+        char status;
+        cout << "Have you paid the tuition fee? (y/n): ";
+        cin >> status;
+        if (status == 'y' || status == 'Y') {
+            paid = true;
+            cout << "Tuition fee paid successfully.\n";
+        } else {
+            cout << "Waiting until fee is paid...\n";
+        }
+    }
+}
+
 //  Main 
 int main() {
     cout << "=== Student Registration System ===\n";
