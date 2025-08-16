@@ -55,7 +55,7 @@ void Visa() {
 //  Tuition Fee 
 void TuitionFee() {
     bool paid = false;
-    cout << "\n--- Tuition Fee Payment ---\n";
+    cout << "\n Tuition Fee Payment \n";
     while (!paid) {
         char status;
         cout << "Have you paid the tuition fee? (y/n): ";
@@ -66,6 +66,19 @@ void TuitionFee() {
         } else {
             cout << "Waiting until fee is paid...\n";
         }
+    }
+}
+
+//  Accommodation 
+void Accommodation() {
+    char needAcc;
+    cout << "\nDo you need accommodation? (y/n): ";
+    cin >> needAcc;
+
+    if (needAcc == 'y' || needAcc == 'Y') {
+        cout << "Accommodation assigned successfully.\n";
+    } else {
+        cout << "No accommodation required.\n";
     }
 }
 
