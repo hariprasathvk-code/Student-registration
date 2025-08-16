@@ -82,11 +82,39 @@ void Accommodation() {
     }
 }
 
+//  Assign Tutor
+void AssignTutor() {
+    cout << "\n--- Assigning Personal Tutor ---\n";
+    cout << "Personal Tutor Assigned.\n";
+    cout << "Meeting with Personal Tutor completed.\n";
+
+    char extra;
+    cout << "Do you have extra credits? (y/n): ";
+    cin >> extra;
+
+    if (extra == 'y' || extra == 'Y') {
+        cout << "Choose additional courses successfully.\n";
+    } else {
+        cout << "No additional courses chosen.\n";
+    }
+}
+
+//  Termination 
+void Termination() {
+    cout << "\n--- Termination ---\n";
+    cout << "Student Fully Registered!\n";
+}
+
 //  Main 
 int main() {
     cout << "=== Student Registration System ===\n";
 
-    Register();           
+    Register();   
+    Visa();               
+    TuitionFee();         
+    Accommodation();     
+    AssignTutor();        
+    Termination();        
 
     cout << "\n=== Registration Process Completed ===\n";
     return 0;
