@@ -36,7 +36,55 @@ void writeDatabase(const vector<vector<string>>& data) {
         file << "\n";
     }
 }
+void updateField(const string& name, const string& field, const string& value) {
+    vector<vector<string>> data = readDatabase();
 
+    if (data.empty()) return;
+
+    // First row = header
+    int colIndex = -1;
+    for (size_t i = 0; i < data[0].size(); i++) {
+        if (data[0][i] == field) {
+            colIndex = i;
+            break;
+        }
+    }
+
+    if (colIndex == -1) return;
+
+    for (size_t i = 1; i < data.size(); i++) {
+        if (data[i][0] == name) {
+            data[i][colIndex] = value;
+            break;
+        }
+    }
+
+    writeDatabase(data);
+}
+
+
+bool studentExists(const string& name) {
+    ifstream file("database.csv");
+    string line;
+
+    getline(file, line); // skip header
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string storedName;
+        getline(ss, storedName, ','); // first column is name
+        if (storedName == name) {
+            return true; // student already exists
+        }
+    }
+    return false;
+}
+
+
+void addStudentToDB(const string& name) {
+    ofstream file("database.csv", ios::app); // append mode
+    file << name << ",Verified,PendingVisa,PendingFee,NoAccommodation,NoTutor,NoExtraCredits\n";
+    file.close();
+}
 
 
 void Initialization() {
