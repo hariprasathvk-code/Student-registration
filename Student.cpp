@@ -127,6 +127,47 @@ void Initialization(){
     }while(!verified);
 }
 
+void Visa(){
+    char need; cout << "\nNeed visa? (y/n): "; cin >> need;
+    if(need=='n' || need=='N'){
+        updateField(studentName, "VisaStatus", "NotNeeded");
+        return;
+    }
+    char applied;
+    do{
+        cout << "Applied for visa? (y/n): ";
+        cin >> applied;
+    }while(!(applied=='y' || applied=='Y'));
+    updateField(studentName, "VisaStatus", "Applied");
+}
+
+void TuitionFee(){
+    char paid;
+    do{
+        cout << "\nPaid tuition fee? (y/n): ";
+        cin >> paid;
+    }while(!(paid=='y' || paid=='Y'));
+    updateField(studentName, "FeePaid", "Yes");
+}
+
+void Accommodation(){
+    char acc; cout << "\nNeed accommodation? (y/n): "; cin >> acc;
+    if(acc=='y' || acc=='Y') updateField(studentName, "Accommodation", "Assigned");
+    else updateField(studentName, "Accommodation", "NotNeeded");
+}
+
+void AssignTutor(){
+    cout << "\nTutor assigned.\n";
+    updateField(studentName, "TutorAssigned", "Yes");
+
+    char extra; cout << "Extra credits? (y/n): "; cin >> extra;
+    if(extra=='y' || extra=='Y') updateField(studentName, "ExtraCredits", "Yes");
+    else updateField(studentName, "ExtraCredits", "No");
+}
+
+void Termination(){
+    cout << "\nStudent fully registered!\n";
+}
 
 int main(){
     ensureHeaderFile(); // create header if missing/empty
