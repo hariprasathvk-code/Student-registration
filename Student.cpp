@@ -34,6 +34,24 @@ void writeDB(const vector<vector<string>>& data){
 }
 
 
+size_t dataStart(const vector<vector<string>>& db){
+    if(!db.empty() && !db[0].empty() && db[0][0] == "Name") return 1;
+    return 0;
+}
+
+int fieldCol(const string& field){
+    if(field=="Name") return 0;
+    if(field=="Verified") return 1;
+    if(field=="VisaStatus") return 2;
+    if(field=="FeePaid") return 3;
+    if(field=="Accommodation") return 4;
+    if(field=="TutorAssigned") return 5;
+    if(field=="ExtraCredits") return 6;
+    return -1;
+}
+
+
+
 int main(){
     ensureHeaderFile(); // create header if missing/empty
 
