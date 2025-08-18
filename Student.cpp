@@ -102,6 +102,31 @@ void ensureHeaderFile(){
 
 
 
+void Initialization(){
+    bool verified = false;
+    do{
+        cout << "\nEnter student name: ";
+        cin >> studentName;
+
+        if(studentExists(studentName)){
+            cout << "Student already exists. Continuing to update their record...\n";
+            verified = true;
+            break;
+        }
+
+        char v; cout << "Admin verifies form? (y/n): "; cin >> v;
+        if(v=='y' || v=='Y'){
+            verified = true;
+            ofstream file("database.csv", ios::app);
+            // initialize with defaults; updates will overwrite below
+            file << studentName << ",Verified,NotNeeded,No,NotNeeded,No,No\n";
+            file.close();
+        }else{
+            cout << "Form not verified. Try again.\n";
+        }
+    }while(!verified);
+}
+
 
 int main(){
     ensureHeaderFile(); // create header if missing/empty
