@@ -51,6 +51,36 @@ int fieldCol(const string& field){
 }
 
 
+void ensureCols(vector<string>& row){
+    if(row.size() < 7) row.resize(7, "");
+}
+
+
+bool studentExists(const string& name){
+    auto db = readDB();
+    size_t start = dataStart(db);
+    for(size_t i=start; i<db.size(); ++i){
+        if(!db[i].empty() && toLower(db[i][0]) == toLower(name)) return true;
+    }
+    return false;
+}
+
+
+void updateField(const string& name, const string& field, const string& value){
+    auto db = readDB();
+    int col = fieldCol(field);
+    if(col < 0) return;
+
+    size_t start = dataStart(db);
+    for(size_t i=start; i<db.size(); ++i){
+        if(!db[i].empty() && toLower(db[i][0]) == toLower(name)){
+            ensureCols(db[i]);
+            db[i][col] = value;
+            writeDB(db);
+            return;
+        }
+    }
+}
 
 int main(){
     ensureHeaderFile(); // create header if missing/empty
