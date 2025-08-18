@@ -82,6 +82,27 @@ void updateField(const string& name, const string& field, const string& value){
     }
 }
 
+// create header if file missing or empty
+void ensureHeaderFile(){
+    ifstream in("database.csv");
+    if(!in.good()){
+        ofstream f("database.csv");
+        f << "Name,Verified,VisaStatus,FeePaid,Accommodation,TutorAssigned,ExtraCredits\n";
+        f.close();
+    }else{
+        // if file exists but empty, add header
+        string any; getline(in, any);
+        if(any.empty()){
+            ofstream f("database.csv");
+            f << "Name,Verified,VisaStatus,FeePaid,Accommodation,TutorAssigned,ExtraCredits\n";
+            f.close();
+        }
+    }
+}
+
+
+
+
 int main(){
     ensureHeaderFile(); // create header if missing/empty
 
