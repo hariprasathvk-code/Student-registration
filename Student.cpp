@@ -22,6 +22,16 @@ vector<vector<string>> readDB(){
 }
 
 // write CSV
+void writeDB(const vector<vector<string>>& data){
+    ofstream file("database.csv");
+    for(const auto& row : data){
+        for(size_t i=0;i<row.size();++i){
+            file << row[i];
+            if(i+1<row.size()) file << ",";
+        }
+        file << "\n";
+    }
+}
 
 
 int main(){
